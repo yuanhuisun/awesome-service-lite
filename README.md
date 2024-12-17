@@ -5,7 +5,9 @@ Awesome Service Lite use laravel as backend API and Soybean Element Plus as fron
 ## Backend
 
 ``` bash
-laravel new awesome-service-lite
+mkdir awesome-service-lite
+cd awesome-service-lite
+laravel new backend
 ```
 
 Select as below
@@ -57,6 +59,70 @@ composer require santigarcor/laratrust
 php artisan vendor:publish --tag="laratrust"
 
 ```
+Update team features in laratrust if needed.
+
+IMPORTANT: Before running the command go to your config/laratrust.php file and change the values according to your needs.
+
+```bash
+php artisan laratrust:setup
+
+
+```
+
+This command will generate the migrations, create the Role and Permission models (if you are using the teams feature it will also create a Team model).
+
+Add the Laratrust\Contracts\LaratrustUser interface and Laratrust\Traits\HasRolesAndPermissions trait in your user classes.
+
+```php
+use Laratrust\Contracts\LaratrustUser;
+use Laratrust\Traits\HasRolesAndPermissions;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable implements LaratrustUser
+{
+    use HasRolesAndPermissions;
+
+    // ...
+}
+
+```
+
+Then Dump the autoloader:
+``` bash
+composer dump-autoload
+php artisan migrate
+```
+
+Laratrust comes with a database seeder, this seeder helps you fill the permissions for each role depending on the module, and creates one user for each role.
+
+``` php
+
+The seeder is going to work with the first user model inside the user_models array.
+
+The seeder doesn't support teams.
+```
+
+To generate the seeder you have to run:
+
+``` bash
+php artisan laratrust:seeder
+```
+
+Then to customize the roles, modules and permissions you can publish the laratrust_seeder.php file:
+
+``` bash
+php artisan vendor:publish --tag="laratrust-seeder"
+
+composer dump-autoload
+
+```
+
+In the database/seeds/DatabaseSeeder.php file you have to add this to the run method:
+
+```php
+$this->call(LaratrustSeeder::class);
+```
+
 
 Then run commands between to start backend service
 
@@ -121,5 +187,9 @@ git push -u origin main
 ```
 
 ## Connect frontend to backend
+Update front-end url in backend/.env
+```php
+FRONTEND_URL=http://localhost:9527
+```
 
 TBD
