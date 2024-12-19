@@ -4,9 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// Add the 
+// Add the
 //      Laratrust\Contracts\LaratrustUser interface
-//      Laratrust\Traits\HasRolesAndPermissions     
+//      Laratrust\Traits\HasRolesAndPermissions
 // trait in  user classes.
 use Laratrust\Contracts\LaratrustUser;
 use Laratrust\Traits\HasRolesAndPermissions;
@@ -28,7 +28,12 @@ class User extends Authenticatable implements LaratrustUser
      */
     protected $fillable = [
         'name',
+        'display_name',
+        'avatar',
+        'gender',
+        'mobile',
         'email',
+        'status',
         'password',
     ];
 

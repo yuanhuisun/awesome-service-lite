@@ -16,9 +16,35 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+            'name' => 'sys-admin',
+            'email' => 'sys-admin@example.com',
+            'avatar' => "",
+            'gender' => "1",
+            'status' => "1",
+         ]);
+
+         User::factory()->create([
+            'name' => 'team-admin',
+            'email' => 'team-admin@example.com',
+            'avatar' => "",
+            'gender' => "1",
+            'status' => "1",
+         ]);
+         User::factory()->create([
+            'name' => 'team-manager',
+            'email' => 'team-manager@example.com',
+            'avatar' => "",
+            'gender' => "1",
+            'status' => "1",
+         ]);
+
+         User::factory()->create([
+            'name' => 'team-ßuser',
+            'email' => 'team-user@example.com',
+            'avatar' => "",
+            'gender' => "1",
+            'status' => "1",
+         ]);
 
         // Laratrust seeder
         $this->call(LaratrustSeeder::class);

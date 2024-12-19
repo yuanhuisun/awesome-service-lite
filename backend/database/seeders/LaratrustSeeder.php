@@ -33,6 +33,7 @@ class LaratrustSeeder extends Seeder
             // Create a new role
             $role = \App\Models\Role::firstOrCreate([
                 'name' => $key,
+                'status' => '1',
                 'display_name' => ucwords(str_replace('_', ' ', $key)),
                 'description' => ucwords(str_replace('_', ' ', $key))
             ]);
@@ -49,6 +50,7 @@ class LaratrustSeeder extends Seeder
 
                     $permissions[] = \App\Models\Permission::firstOrCreate([
                         'name' => $module . '-' . $permissionValue,
+                        'status' => '1',
                         'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
                         'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
                     ])->id;
@@ -65,6 +67,7 @@ class LaratrustSeeder extends Seeder
                 // Create default user for each role
                 $user = \App\Models\User::create([
                     'name' => ucwords(str_replace('_', ' ', $key)),
+                    'status' => '1',
                     'email' => $key.'@app.com',
                     'password' => bcrypt('password')
                 ]);

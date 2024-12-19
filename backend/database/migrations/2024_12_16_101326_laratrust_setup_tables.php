@@ -18,6 +18,8 @@ class LaratrustSetupTables extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('display_name')->nullable();
+            $table->string('status');   // role status : 1-enabled, 0-disabled
+            //$table->string('code');     // role code
             $table->string('description')->nullable();
             $table->timestamps();
         });
@@ -27,6 +29,7 @@ class LaratrustSetupTables extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('display_name')->nullable();
+            $table->string('status');   // status : 1-enabled, 0-disabled
             $table->string('description')->nullable();
             $table->timestamps();
         });
@@ -36,6 +39,7 @@ class LaratrustSetupTables extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('display_name')->nullable();
+            $table->string('status');   // status : 1-enabled, 0-disabled
             $table->string('description')->nullable();
             $table->timestamps();
         });
