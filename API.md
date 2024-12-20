@@ -33,5 +33,3 @@ it will create app/Models/Ticket.php and TicketController.php
 
    INFO  Controller [app/Http/Controllers/TicketController.php] created successfully.  
 ````
-
-

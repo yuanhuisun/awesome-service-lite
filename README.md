@@ -210,3 +210,11 @@ php artisan make:Request UserRequest
 ```
 
 
+php artisan make:Policy UserPolicy
+
+   INFO  Policy [app/Policies/UserPolicy.php] created successfully.  
+
+
+php artisan make:Request LoginRequest
+
+   INFO  Request [app/Http/Requests/LoginRequest.php] created successfully.  
