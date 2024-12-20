@@ -188,8 +188,25 @@ git push -u origin main
 
 ## Connect frontend to backend
 Update front-end url in backend/.env
+
 ```php
 FRONTEND_URL=http://localhost:9527
 ```
 
 Starting API design [API Design](API.md)
+
+```bash
+php artisan make:Controller UserController
+
+   INFO  Controller [app/Http/Controllers/UserController.php] created successfully.  
+
+php artisan make:Resource UserResource
+
+   INFO  Resource [app/Http/Resources/UserResource.php] created successfully.  
+
+php artisan make:Request UserRequest              
+
+   INFO  Request [app/Http/Requests/UserRequest.php] created successfully.  
+```
+
+
