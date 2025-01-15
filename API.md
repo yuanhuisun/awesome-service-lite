@@ -11,25 +11,41 @@ To better design and test API, it would be good to use [APIfox](https://app.apif
 setup a project in apifox.
 [image] (apifox-1.jpg)
 
+### API Design for awesome-service-lite
+
+To understand how API works, please refer to [Route](Route.md)
+
 ### User Authentication 
 
-design api for user authentication
+design api for user authentication. 
+
+--- Login
+--- Register
+--- Logout
+
+### User Management
+
+--- Index
+--- Create
+--- Read
+--- Update
+--- Delete
 
 ### Ticket Management
 
-Design a ticket management system, so create a model and controller for Ticket.
+--- Index
+--- Create
+--- Read
+--- Update
+--- Delete
 
-```php
-php artsian make:model Ticket -m -c --api
-```
+### Menu Management
 
-it will create app/Models/Ticket.php and TicketController.php
+--- Index
+--- Create
+--- Read
+--- Update
+--- Delete
 
-```bash
 
-   INFO  Model [app/Models/Ticket.php] created successfully.  
 
-   INFO  Migration [database/migrations/2024_12_18_093116_create_tickets_table.php] created successfully.  
-
-   INFO  Controller [app/Http/Controllers/TicketController.php] created successfully.  
-````

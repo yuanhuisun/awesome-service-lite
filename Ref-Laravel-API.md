@@ -195,7 +195,7 @@ GET /api/me: Get the currently authenticated user's information.
 
 AuthController:
 
-PHP
+```PHP
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
@@ -244,19 +244,22 @@ class AuthController extends Controller
         return response()->json(['message' => 'Successfully logged out']);
     }
 }
+```
+
 4. User Resource and Authorization (Policies):
 
 This part remains largely the same as the JWT example, as authorization is handled separately from authentication.
 
 Endpoints:
-
+```bash
 GET /api/users: Get a list of users (admin only).
 GET /api/users/{user}: Get a specific user (admin or own profile).
 PUT /api/users/{user}: Update a user (admin or own profile).
 DELETE /api/users/{user}: Delete a user (admin only).
 UserPolicy (No changes needed):
+```
 
-PHP
+```PHP
 
 // app/Policies/UserPolicy.php
 // ... (same as the JWT example)
@@ -265,9 +268,12 @@ PHP
 
 // app/Http/Controllers/UserController.php
 // ... (same as the JWT example)
+```
+
+
 5. API Routes (routes/api.php):
 
-PHP
+```PHP
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -282,14 +288,19 @@ Route::middleware('auth:sanctum')->group(function () { // Use 'auth:sanctum' mid
 
     Route::apiResource('users', UserController::class);
 });
-Key Changes and Explanations:
+
+```
+
+### Key Changes and Explanations:
+
 
 auth:sanctum Middleware: The key change is using the auth:sanctum middleware to protect the routes that require authentication. This middleware handles token validation and retrieves the authenticated user.
 Token Creation: Sanctum tokens are created using $user->createToken('token_name')->plainTextToken. The token_name is arbitrary (e.g., 'auth_token').
 Token Revocation: Tokens are revoked using $request->user()->currentAccessToken()->delete().
 $request->user(): Within authenticated routes, you can access the authenticated user using $request->user().
 No JWT Package: We no longer need the tymon/jwt-auth package.
-Frontend Considerations:
+
+#### Frontend Considerations:
 
 When making requests to your API, include the Sanctum token in the Authorization header as a Bearer token:
 
@@ -393,10 +404,6 @@ class RegisterRequest extends FormRequest
 
 ```
 LoginRequest1 (app/Http/Requests/LoginRequest.php):   
-1.
-github.com
-github.com
-PHP
 
 ```php
 

@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest; // Use Form Requests
 use App\Http\Resources\UserResource; // Use API Resources
-use App\Http\Controllers\Auth\AuthController; // Use AuthController
-use App\Models\User;
+use App\Http\Controllers\AuthController; // Use AuthController
+
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class UserController extends Controller
 {
-    //use UserRequest;
+    use AuthorizesRequests;
+
     //
     public function index(Request $request)
     {

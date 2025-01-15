@@ -218,3 +218,23 @@ php artisan make:Policy UserPolicy
 php artisan make:Request LoginRequest
 
    INFO  Request [app/Http/Requests/LoginRequest.php] created successfully.  
+
+
+   ### Ticket Management
+
+Design a ticket management system, so create a model and controller for Ticket.
+
+```php
+php artsian make:model Ticket -m -c --api
+```
+
+it will create app/Models/Ticket.php and TicketController.php
+
+```bash
+
+   INFO  Model [app/Models/Ticket.php] created successfully.  
+
+   INFO  Migration [database/migrations/2024_12_18_093116_create_tickets_table.php] created successfully.  
+
+   INFO  Controller [app/Http/Controllers/TicketController.php] created successfully.  
+````

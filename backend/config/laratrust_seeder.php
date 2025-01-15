@@ -14,16 +14,20 @@ return [
     'roles_structure' => [
         'sys_admin' => [
             'users' => 'c,r,u,d',
-            'tickets' => 'c,r,u,d',
+            'teams' => 'c,r,u,d',
+            //'tickets' => 'c,r,u,d',
             'profile' => 'r,u',
         ],
         'team_admin' => [
             'users' => 'c,r,u,d',
+            'teams' => 'r,u',
+            'tickets' => 'c,r,u,d',
             'profile' => 'r,u',
         ],
-        'user' => [
+        'team_user' => [
+            'teams' => 'r',
             'profile' => 'r,u',
-            'tickets' => 'c,r,u,d',
+            'tickets' => 'c,r,u',
         ],
         'team_manager' => [
             'users' => 'r,u',
